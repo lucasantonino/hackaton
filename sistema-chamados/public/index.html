@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7fb" />
+    <title>Central de chamados</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Central de chamados, início">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span>Central <span class="brand-light">de suporte</span></span>
+        </a>
+        <span class="environment-badge"><span class="status-dot"></span> Painel de atendimento</span>
+      </header>
+
+      <main>
+        <section class="welcome" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">SUPORTE TÉCNICO</p>
+            <h1 id="page-title">Chamados</h1>
+            <p class="welcome-copy">Registre uma solicitação ou acompanhe o andamento dos chamados.</p>
+          </div>
+          <div class="welcome-icon" aria-hidden="true">✳</div>
+        </section>
+
+        <div id="app-message" class="message" role="status" aria-live="polite" hidden></div>
+
+        <div class="content-grid">
+          <section class="card form-card" aria-labelledby="new-ticket-title">
+            <div class="card-heading">
+              <div class="heading-icon" aria-hidden="true">＋</div>
+              <div>
+                <h2 id="new-ticket-title">Novo chamado</h2>
+                <p>Conte para a equipe como podemos ajudar.</p>
+              </div>
+            </div>
+
+            <form id="ticket-form">
+              <label for="title">Título <span class="required-mark">*</span></label>
+              <input id="title" name="title" type="text" placeholder="Ex.: Não consigo acessar o sistema" maxlength="120" required />
+
+              <label for="requester">Solicitante <span class="required-mark">*</span></label>
+              <input id="requester" name="requester" type="text" placeholder="Seu nome" maxlength="100" required />
+
+              <label for="description">Descrição <span class="optional-label">Opcional</span></label>
+              <textarea id="description" name="description" rows="4" placeholder="Inclua detalhes que ajudem a entender a solicitação"></textarea>
+
+              <button id="submit-button" class="button button-primary" type="submit">
+                <span aria-hidden="true">＋</span> Registrar chamado
+              </button>
+              <p class="form-note"><span class="required-mark">*</span> Campos obrigatórios</p>
+            </form>
+          </section>
+
+          <section class="card list-card" aria-labelledby="ticket-list-title">
+            <div class="list-heading">
+              <div class="card-heading">
+                <div class="heading-icon list-icon" aria-hidden="true">☷</div>
+                <div>
+                  <h2 id="ticket-list-title">Acompanhar chamados</h2>
+                  <p>Consulte solicitações e atualize o status.</p>
+                </div>
+              </div>
+              <label class="filter-label" for="status-filter">Filtrar por status</label>
+              <select id="status-filter" name="status">
+                <option value="">Todos os chamados</option>
+                <option value="Aberto">Abertos</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Concluído">Concluídos</option>
+              </select>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Chamado</th>
+                    <th scope="col">Solicitante</th>
+                    <th scope="col">Status atual</th>
+                    <th scope="col">Alterar status</th>
+                  </tr>
+                </thead>
+                <tbody id="ticket-list">
+                  <tr><td class="empty-cell" colspan="4">Carregando chamados…</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="connection-note"><span class="status-dot"></span> Conectado ao servidor local</p>
+          </section>
+        </div>
+      </main>
+
+      <footer>Central de suporte <span>·</span> Sistema de chamados</footer>
+    </div>
+  </body>
+</html>

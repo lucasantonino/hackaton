@@ -1,0 +1,12 @@
+{
+  "name": "sistema-chamados",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema local para registrar e acompanhar chamados de suporte",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
